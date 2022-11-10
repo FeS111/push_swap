@@ -19,7 +19,7 @@ $(NAME): $(OBJ) | libft/libft.a
 	$(AR) $(ARFLAGS) $@ $^
 
 libft/libft.a:
-	(cd libft && make all && make clean)
+	(cd libft && make && make clean)
 
 _bin :
 	mkdir _bin

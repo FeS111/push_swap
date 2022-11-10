@@ -6,42 +6,68 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/10 15:55:01 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/10 16:22:40 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_stacks(t_list *a, t_list *b)
+void	ft_print_stacks(t_stack **a, t_stack **b)
 {
-	t_list	*atmp;
-	t_list	*btmp;
-
-	atmp = a;
-	btmp = b;
-	while (atmp != NULL || btmp != NULL)
+	while (*a != NULL || *b != NULL)
 	{
-		if (atmp != NULL && atmp->content)
-			ft_printf("%d", (int) *((int *) atmp->content));
+		if (*a != NULL && (*a)->content)
+			ft_printf("%d", (*a)->content);
 		else
 			ft_printf("_");
 		ft_printf("    ");
-		if (btmp != NULL && btmp->content)
-			ft_printf("%d\n", (int) *((int *) btmp->content));
+		if (*b != NULL && (*b)->content)
+			ft_printf("%d\n", (*b)->content);
 		else
 			ft_printf("_\n");
-		if (atmp)
-			atmp = atmp->next;
-		if (btmp)
-			btmp = btmp->next;
+		if (*a)
+			*a = (*a)->next;
+		if (*b)
+			*b = (*b)->next;
 	}
 }
 
-void	ft_stack_add(t_list **a, int content)
+t_stack	*ft_stacknew(int content)
 {
-	int	*c;
+	t_stack	*lst;
 
-	c = malloc(sizeof(int));
-	*c = content;
-	ft_lstadd_back(a, ft_lstnew(c));
+	lst = (t_stack *) malloc(sizeof(t_stack));
+	if (!lst)
+		return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
+}
+
+t_stack	*ft_stacklast(t_stack *lst)
+{
+	t_stack	*current;
+
+	current = lst;
+	while (current)
+	{
+		if (!current->next)
+			return (current);
+		current = current->next;
+	}
+	return (NULL);
+}
+
+void	ft_stackadd_back(t_stack **lst, t_stack *new)
+{
+	t_stack	*last;
+
+	if (*lst)
+	{
+		last = ft_stacklast(*lst);
+		if (last)
+		last->next = new;
+	}
+	else
+		*lst = new;
 }
