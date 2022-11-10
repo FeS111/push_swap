@@ -1,0 +1,3 @@
+*.o
+printf/
+push_swap
