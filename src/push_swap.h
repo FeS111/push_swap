@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/10 15:33:05 by fschmid          ###   ########.fr       */
+/*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
+/*   Updated: 2022/11/10 15:33:09 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-// int argc, char **argv
-int	main()
-{
-	int *c = malloc(sizeof(int));
-	*c = 1;
-	t_list *a = ft_lstnew(c);
-	t_list *b = ft_lstnew(NULL);
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include <stdlib.h>
+# include <unistd.h>
+# include "../printf/src/ft_printf.h"
+# include <stdarg.h>
 
-	ft_stack_add(&a, 2);
-	ft_stack_add(&a, 3);
-	ft_stack_add(&a, 4);
-	ft_print_stacks(a, b);
-	return (0);
-}
+void	ft_print_stacks(t_list *a, t_list *b);
+
+void	ft_stack_add(t_list **a, int content);
+
+#endif

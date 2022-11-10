@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/10 15:33:05 by fschmid          ###   ########.fr       */
+/*   Created: 2022/10/11 08:57:44 by fschmid           #+#    #+#             */
+/*   Updated: 2022/10/11 13:44:16 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-// int argc, char **argv
-int	main()
-{
-	int *c = malloc(sizeof(int));
-	*c = 1;
-	t_list *a = ft_lstnew(c);
-	t_list *b = ft_lstnew(NULL);
+#include "libft.h"
 
-	ft_stack_add(&a, 2);
-	ft_stack_add(&a, 3);
-	ft_stack_add(&a, 4);
-	ft_print_stacks(a, b);
+int	ft_isalpha(int c)
+{
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
 	return (0);
 }

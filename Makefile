@@ -11,16 +11,13 @@ AR		= ar
 ARFLAGS = -rcs
 # File Variables
 NAME	= push_swap
-SRC		= $(addprefix src/, push_swap.c)
+SRC		= $(addprefix src/, push_swap.c ft_stack_util.c)
 OBJ		= $(addprefix _bin/,$(notdir $(SRC:.c=.o)))
 
 $(NAME): $(OBJ) | printf/libftprintf.a
 	$(CC) -o $(NAME) $(CFLAGSS) $(INCFLAG) $(OBJ) printf/libftprintf.a
 
-printf:
-	@if [ ! -d "./printf" ]; then git clone https://github.com/fes111/printf.git; fi
-
-printf/libftprintf.a: printf
+printf/libftprintf.a:
 	(cd printf && make && make clean)
 
 _bin :
@@ -34,7 +31,7 @@ clean:
 
 fclean:	clean
 	@rm -f $(NAME)
-	@rm -rf libft
+	(cd printf && make fclean)
 
 re:		fclean all
 

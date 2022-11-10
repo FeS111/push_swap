@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putnr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/10 15:33:05 by fschmid          ###   ########.fr       */
+/*   Created: 2022/10/14 10:55:05 by fschmid           #+#    #+#             */
+/*   Updated: 2022/10/14 10:56:08 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-// int argc, char **argv
-int	main()
-{
-	int *c = malloc(sizeof(int));
-	*c = 1;
-	t_list *a = ft_lstnew(c);
-	t_list *b = ft_lstnew(NULL);
+#include "libft.h"
 
-	ft_stack_add(&a, 2);
-	ft_stack_add(&a, 3);
-	ft_stack_add(&a, 4);
-	ft_print_stacks(a, b);
-	return (0);
+static void	ft_putlong_fd(long int n, int fd)
+{
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		n = n % 10;
+	}
+	if (n < 10)
+		ft_putchar_fd(n + 48, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	ft_putlong_fd((long int) n, fd);
 }
