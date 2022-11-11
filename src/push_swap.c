@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:45:58 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 15:49:52 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ int	main(int argc, char **argv)
 	ft_swap(a);
 	ft_print_stacks(a, b);
 
-	ft_printf("push a\n");
-	ft_push(a, b);
-	ft_print_stacks(a, b);
-
 	ft_printf("push b\n");
 	ft_push(b, a);
+	ft_print_stacks(a, b);
+
+	ft_printf("push a\n");
+	ft_push(a, b);
 	ft_print_stacks(a, b);
 
 	ft_printf("rotate a\n");
