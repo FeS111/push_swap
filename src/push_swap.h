@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:40:38 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 17:56:52 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,12 @@ t_stack	*ft_stackget_last(t_stack **lst);
 void	ft_rotate(t_stack **stack);
 
 void	ft_reverse_rotate(t_stack **stack);
+
+void	ft_free_stack(t_stack **stack);
+
+int		ft_stack_has(t_stack **stack, int num);
+
+size_t	ft_stack_size(t_stack **stack);
+
+t_stack	*ft_stackget_n(t_stack **stack, int n);
 #endif

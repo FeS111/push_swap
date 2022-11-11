@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:40:24 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 17:56:37 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,47 @@ t_stack	*ft_stackget_last(t_stack **lst)
 	return (tmp);
 }
 
+int	ft_stack_has(t_stack **stack, int num)
+{
+	t_stack	*tmp;
 
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->content == num)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*last;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		last = tmp;
+		tmp = tmp->next;
+		free(last);
+	}
+	free(stack);
+}
+
+t_stack	*ft_stackget_n(t_stack **stack, int n)
+{
+	int		i;
+	t_stack	*tmp;
+
+	tmp = *stack;
+	i = 0;
+	while (tmp)
+	{
+		if (i == n)
+			return (tmp);
+		i++;
+	}
+	return (NULL);
+}

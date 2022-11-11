@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:53:46 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 17:50:35 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,21 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 		*lst = new;
 }
 
+size_t	ft_stack_size(t_stack **stack)
+{
+	size_t	count;
+	t_stack	*tmp;
+
+	count = 0;
+	tmp = *stack;
+	while (tmp)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count);
+}
+
 t_stack	**ft_parse_arguments(int argc, char **args)
 {
 	t_stack	**stack;
@@ -91,7 +106,7 @@ t_stack	**ft_parse_arguments(int argc, char **args)
 		i++;
 	while (args[i] != '\0')
 	{
-		if (!ft_atoi(args[i]))
+		if (!ft_atoi(args[i]) || ft_stack_has(stack, ft_atoi(args[i])))
 			return (NULL);
 		if (!(*stack))
 			*stack = ft_stacknew(ft_atoi(args[i]));

@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:49:52 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 17:51:33 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int	main(int argc, char **argv)
 	t_stack **a = ft_parse_arguments(argc, argv);
 	if (a == NULL)
 	{
-		ft_printf("Error\n");
-		return (0);
+		ft_putstr_fd("Error\n", 2);
+		exit(0);
 	}
 	t_stack **b = malloc(sizeof(t_stack *));
+	ft_printf("Stack size is: %d\n", ft_stack_size(a));
 
 	ft_print_stacks(a, b);
 
@@ -43,6 +44,9 @@ int	main(int argc, char **argv)
 	ft_printf("reverse rotate a\n");
 	ft_reverse_rotate(a);
 	ft_print_stacks(a, b);
+
+	ft_free_stack(a);
+	ft_free_stack(b);
 	
 	return (0);
 }
