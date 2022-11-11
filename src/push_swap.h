@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/10 16:23:43 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 12:22:01 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ t_stack	*ft_stacknew(int content);
 void	ft_stackadd_back(t_stack **lst, t_stack *new);
 
 t_stack	*ft_stacklast(t_stack *lst);
+
+t_stack **ft_parse_arguments(int argc, char **args);
 
 #endif

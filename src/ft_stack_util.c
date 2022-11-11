@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_util.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/10 16:22:40 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 13:03:01 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,32 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 	}
 	else
 		*lst = new;
+}
+
+t_stack	**ft_parse_arguments(int argc, char **args)
+{
+	t_stack	**stack;
+	int		i;
+
+	i = 0;
+	stack = malloc(sizeof(t_stack *));
+	if (argc == 2)
+		args = ft_split(args[1], ' ');
+	else
+		i++;
+	while (args[i] != '\0')
+	{
+		if (!ft_atoi(args[i]))
+			return (NULL);
+		if (!(*stack))
+		{
+			*stack = ft_stacknew(ft_atoi(args[i]));
+		}
+		else
+		{
+			ft_stackadd_back(stack, ft_stacknew(ft_atoi(args[i])));
+		}
+		i++;
+	}
+	return (stack);
 }
