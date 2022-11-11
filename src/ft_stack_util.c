@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:12:58 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 15:53:46 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,18 @@ void	ft_print_stacks(t_stack **a, t_stack **b)
 		if (atmp != NULL && atmp->content)
 			ft_printf("%d", atmp->content);
 		else
-			ft_printf("_");
+			ft_printf(".");
 		ft_printf("    ");
 		if (btmp != NULL && btmp->content)
 			ft_printf("%d\n", btmp->content);
 		else
-			ft_printf("_\n");
+			ft_printf(".\n");
 		if (atmp)
 			atmp = atmp->next;
 		if (btmp)
 			btmp = btmp->next;
 	}
+	ft_printf("_    _\na    b\n");
 }
 
 t_stack	*ft_stacknew(int content)
