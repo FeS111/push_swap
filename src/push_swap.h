@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 12:22:01 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 15:40:38 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new);
 
 t_stack	*ft_stacklast(t_stack *lst);
 
-t_stack **ft_parse_arguments(int argc, char **args);
+t_stack	**ft_parse_arguments(int argc, char **args);
 
+void	ft_swap(t_stack **stack);
+
+void	ft_stackadd_front(t_stack **lst, t_stack *new);
+
+void	ft_push(t_stack **a, t_stack **b);
+
+t_stack	*ft_stackget_last(t_stack **lst);
+
+void	ft_rotate(t_stack **stack);
+
+void	ft_reverse_rotate(t_stack **stack);
 #endif

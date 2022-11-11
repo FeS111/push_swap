@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 13:03:01 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/11 15:12:58 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,26 @@
 
 void	ft_print_stacks(t_stack **a, t_stack **b)
 {
-	while (*a != NULL || *b != NULL)
+	t_stack	*atmp;
+	t_stack	*btmp;
+
+	atmp = *a;
+	btmp = *b;
+	while (atmp != NULL || btmp != NULL)
 	{
-		if (*a != NULL && (*a)->content)
-			ft_printf("%d", (*a)->content);
+		if (atmp != NULL && atmp->content)
+			ft_printf("%d", atmp->content);
 		else
 			ft_printf("_");
 		ft_printf("    ");
-		if (*b != NULL && (*b)->content)
-			ft_printf("%d\n", (*b)->content);
+		if (btmp != NULL && btmp->content)
+			ft_printf("%d\n", btmp->content);
 		else
 			ft_printf("_\n");
-		if (*a)
-			*a = (*a)->next;
-		if (*b)
-			*b = (*b)->next;
+		if (atmp)
+			atmp = atmp->next;
+		if (btmp)
+			btmp = btmp->next;
 	}
 }
 
@@ -88,13 +93,9 @@ t_stack	**ft_parse_arguments(int argc, char **args)
 		if (!ft_atoi(args[i]))
 			return (NULL);
 		if (!(*stack))
-		{
 			*stack = ft_stacknew(ft_atoi(args[i]));
-		}
 		else
-		{
 			ft_stackadd_back(stack, ft_stacknew(ft_atoi(args[i])));
-		}
 		i++;
 	}
 	return (stack);
