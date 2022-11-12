@@ -3,23 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 17:51:33 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/12 15:02:19 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_exit(t_stack **stack)
+{
+	ft_putstr_fd("Error\n", 2);
+	ft_free_stack(stack);
+	exit(1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack **a = ft_parse_arguments(argc, argv);
-	if (a == NULL)
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(0);
-	}
+
+	ft_set_index(a);
 	t_stack **b = malloc(sizeof(t_stack *));
 	ft_printf("Stack size is: %d\n", ft_stack_size(a));
 

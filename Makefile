@@ -11,7 +11,7 @@ AR		= ar
 ARFLAGS = -rcs
 # File Variables
 NAME	= push_swap
-SRC		= $(addprefix src/, push_swap.c ft_stack_util.c ft_stack_util2.c ft_stack_operations.c)
+SRC		= $(addprefix src/, push_swap.c ft_stack_util.c ft_stack_util2.c ft_stack_util3.c ft_stack_operations.c)
 OBJ		= $(addprefix _bin/,$(notdir $(SRC:.c=.o)))
 
 $(NAME): $(OBJ) | printf/libftprintf.a
@@ -25,6 +25,10 @@ _bin :
 
 _bin/%.o : %.c printf/libftprintf.a | _bin
 	$(CC) -c $(CFLAGSS) $(INCFLAG) $< -o $@
+
+san: CFLAGSS += -fsanitize=address
+
+san: re
 
 clean:
 	@rm -f $(OBJ)

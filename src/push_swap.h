@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 17:56:52 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/12 14:24:46 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,8 @@ int		ft_stack_has(t_stack **stack, int num);
 size_t	ft_stack_size(t_stack **stack);
 
 t_stack	*ft_stackget_n(t_stack **stack, int n);
+
+void	ft_set_index(t_stack **stack);
+
+void	ft_exit(t_stack **stack);
 #endif

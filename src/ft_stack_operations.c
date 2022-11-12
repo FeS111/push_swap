@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_operations.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:57:20 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 15:45:36 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/12 12:25:30 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	ft_rotate(t_stack **stack)
 
 	first = *stack;
 	*stack = (*stack)->next;
-
 	first->next = NULL;
 	ft_stackadd_back(stack, first);
 }

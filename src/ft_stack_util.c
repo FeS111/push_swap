@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_util.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 17:50:35 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/12 14:37:15 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_stack	*ft_stacknew(int content)
 	if (!lst)
 		return (NULL);
 	lst->content = content;
+	lst->index = -1;
 	lst->next = NULL;
 	return (lst);
 }
@@ -78,21 +79,6 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 		*lst = new;
 }
 
-size_t	ft_stack_size(t_stack **stack)
-{
-	size_t	count;
-	t_stack	*tmp;
-
-	count = 0;
-	tmp = *stack;
-	while (tmp)
-	{
-		count++;
-		tmp = tmp->next;
-	}
-	return (count);
-}
-
 t_stack	**ft_parse_arguments(int argc, char **args)
 {
 	t_stack	**stack;
@@ -100,18 +86,17 @@ t_stack	**ft_parse_arguments(int argc, char **args)
 
 	i = 0;
 	stack = malloc(sizeof(t_stack *));
+	if (!stack)
+		ft_exit(stack);
 	if (argc == 2)
 		args = ft_split(args[1], ' ');
 	else
 		i++;
-	while (args[i] != '\0')
+	while (args[i] != NULL)
 	{
 		if (!ft_atoi(args[i]) || ft_stack_has(stack, ft_atoi(args[i])))
-			return (NULL);
-		if (!(*stack))
-			*stack = ft_stacknew(ft_atoi(args[i]));
-		else
-			ft_stackadd_back(stack, ft_stacknew(ft_atoi(args[i])));
+			ft_exit(stack);
+		ft_stackadd_back(stack, ft_stacknew(ft_atoi(args[i])));
 		i++;
 	}
 	return (stack);

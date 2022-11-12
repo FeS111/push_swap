@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_util2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/11 17:56:37 by fschmid          ###   ########.fr       */
+/*   Updated: 2022/11/12 14:55:53 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*ft_stackget_last(t_stack **lst)
 	t_stack	*tmp;
 
 	if (!lst)
-		return ;
+		return (NULL);
 	tmp = *lst;
 	while (tmp->next)
 		tmp = tmp->next;
@@ -36,10 +36,12 @@ int	ft_stack_has(t_stack **stack, int num)
 {
 	t_stack	*tmp;
 
+	if (!stack)
+		return (0);
 	tmp = *stack;
 	while (tmp)
 	{
-		if (tmp->content == num)
+		if (tmp && tmp->content == num)
 			return (1);
 		tmp = tmp->next;
 	}
