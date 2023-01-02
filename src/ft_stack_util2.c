@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/12 14:55:53 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:49:22 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	ft_free_stack(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*last;
 
+	if (!stack)
+		return ;
 	tmp = *stack;
 	while (tmp)
 	{

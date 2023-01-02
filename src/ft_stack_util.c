@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/12 14:37:15 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:50:57 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,31 @@ void	ft_print_stacks(t_stack **a, t_stack **b)
 	t_stack	*atmp;
 	t_stack	*btmp;
 
-	atmp = *a;
-	btmp = *b;
+	if (a)
+		atmp = *a;
+	else
+		atmp = NULL;
+	if (b)
+		btmp = *b;
+	else
+		btmp = NULL;
 	while (atmp != NULL || btmp != NULL)
 	{
 		if (atmp != NULL && atmp->content)
-			ft_printf("%d", atmp->content);
+			ft_printf(" %d", atmp->content);
 		else
-			ft_printf(".");
+			ft_printf(" .");
 		ft_printf("    ");
 		if (btmp != NULL && btmp->content)
-			ft_printf("%d\n", btmp->content);
+			ft_printf("%d \n", btmp->content);
 		else
-			ft_printf(".\n");
+			ft_printf(". \n");
 		if (atmp)
 			atmp = atmp->next;
 		if (btmp)
 			btmp = btmp->next;
 	}
-	ft_printf("_    _\na    b\n");
+	ft_printf("<a>  <b>\n");
 }
 
 t_stack	*ft_stacknew(int content)
@@ -82,22 +88,24 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 t_stack	**ft_parse_arguments(int argc, char **args)
 {
 	t_stack	**stack;
+	char	**tmp;
 	int		i;
+	int		j;
 
 	i = 0;
 	stack = malloc(sizeof(t_stack *));
-	if (!stack)
+	if (!stack || argc < 2)
 		ft_exit(stack);
-	if (argc == 2)
-		args = ft_split(args[1], ' ');
-	else
-		i++;
-	while (args[i] != NULL)
+	while (++i < argc)
 	{
-		if (!ft_atoi(args[i]) || ft_stack_has(stack, ft_atoi(args[i])))
+		tmp = ft_split(args[i], ' ');
+		if (tmp == NULL)
 			ft_exit(stack);
-		ft_stackadd_back(stack, ft_stacknew(ft_atoi(args[i])));
-		i++;
+		j = -1;
+		while (tmp[++j] != NULL)
+			if (is_num(tmp[j]))
+				ft_stackadd_back(stack, ft_stacknew(ft_atoi(tmp[j])));
+		free_string_array(tmp);
 	}
 	return (stack);
 }
