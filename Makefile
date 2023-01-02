@@ -11,7 +11,7 @@ AR		= ar
 ARFLAGS = -rcs
 # File Variables
 NAME	= push_swap
-SRC		= $(addprefix src/, push_swap.c ft_stack_util.c ft_stack_util2.c ft_stack_util3.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c ft_util.c)
+SRC		= $(addprefix src/, push_swap.c ft_stack_util.c ft_stack_util2.c ft_stack_util3.c ft_swap.c ft_push.c ft_rotate.c ft_reverse_rotate.c )
 OBJ		= $(addprefix _bin/,$(notdir $(SRC:.c=.o)))
 
 $(NAME): $(OBJ) | libft/libft.a

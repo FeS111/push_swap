@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/02 14:27:24 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:33:12 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,4 @@ t_stack	*ft_stackget_n(t_stack **stack, int n);
 void	ft_set_index(t_stack **stack);
 
 void	ft_exit(t_stack **stack);
-
-void	free_string_array(char **tmp);
-
-int		is_num(char *tmp);
 #endif
