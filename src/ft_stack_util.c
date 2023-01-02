@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/02 12:50:57 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:49:55 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ t_stack	**ft_parse_arguments(int argc, char **args)
 	i = 0;
 	stack = malloc(sizeof(t_stack *));
 	if (!stack || argc < 2)
-		ft_exit(stack);
+		exit(0);
 	while (++i < argc)
 	{
 		tmp = ft_split(args[i], ' ');
@@ -103,8 +103,12 @@ t_stack	**ft_parse_arguments(int argc, char **args)
 			ft_exit(stack);
 		j = -1;
 		while (tmp[++j] != NULL)
+		{
 			if (is_num(tmp[j]))
 				ft_stackadd_back(stack, ft_stacknew(ft_atoi(tmp[j])));
+			else
+				ft_exit(stack);
+		}
 		free_string_array(tmp);
 	}
 	return (stack);
