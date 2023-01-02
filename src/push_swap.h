@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/02 12:34:56 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/02 14:27:24 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 # include <stdlib.h>
 # include <unistd.h>
-# include "../printf/src/ft_printf.h"
+# include "../libft/src/libft.h"
 # include <stdarg.h>
 
 typedef struct s_stack
