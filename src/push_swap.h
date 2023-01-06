@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/02 14:33:12 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/06 12:34:46 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+int		is_rev_sorted(t_stack **stack);
+
+int		is_sorted(t_stack **stack);
+
 void	ft_print_stacks(t_stack **a, t_stack **b);
+
+void	sort_stack(t_stack **a, t_stack **b);
 
 t_stack	*ft_stacknew(int content);
 

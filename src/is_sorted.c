@@ -1,63 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_util3.c                                   :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/12 11:35:36 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 12:30:51 by fschmid          ###   ########.fr       */
+/*   Created: 2023/01/06 12:27:27 by fschmid           #+#    #+#             */
+/*   Updated: 2023/01/06 12:46:29 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_stack_size(t_stack **stack)
+int	is_sorted(t_stack **stack)
 {
-	size_t	count;
 	t_stack	*tmp;
+	int		last;
 
-	count = 0;
 	tmp = *stack;
+	last = 0;
 	while (tmp)
 	{
-		count++;
+		if (tmp->index < last)
+			return (0);
+		last = tmp->index;
 		tmp = tmp->next;
 	}
-	return (count);
+	return (1);
 }
 
-t_stack	*ft_get_next_min(t_stack **stack)
+int	is_rev_sorted(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack	*min;
-	int		has_min;
+	int		last;
 
-	min = NULL;
-	has_min = 0;
 	tmp = *stack;
+	last = ft_stack_size(stack) - 1;
 	while (tmp)
 	{
-		if (tmp->index == -1 && (!has_min || tmp->content < min->content))
-		{
-			min = tmp;
-			has_min = 1;
-		}
+		if (tmp->index > last)
+			return (0);
+		last = tmp->index;
 		tmp = tmp->next;
 	}
-	return (min);
-}
-
-void	ft_set_index(t_stack **stack)
-{
-	t_stack	*tmp;
-	int		index;
-
-	index = 0;
-	tmp = ft_get_next_min(stack);
-	while (tmp)
-	{
-		tmp->index = index++;
-		tmp = ft_get_next_min(stack);
-	}
+	return (1);
 }

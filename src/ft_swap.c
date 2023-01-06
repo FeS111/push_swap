@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 14:57:20 by fschmid           #+#    #+#             */
-/*   Updated: 2022/11/14 12:11:05 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/06 12:20:44 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_swap_a(t_stack **stack)
 	b->next = a;
 	a->next = c;
 	*stack = b;
-	ft_putendl_fd("sb", 1);
+	ft_putendl_fd("sa", 1);
 }
 
 void	ft_swap_b(t_stack **stack)
