@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 12:47:22 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/06 16:47:31 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int argc, char **argv)
 	t_stack	**b;
 
 	a = ft_parse_arguments(argc, argv);
-	b = NULL;
+	b = (t_stack **) malloc(sizeof(t_stack *));
+	*b = NULL;
 	ft_set_index(a);
 	sort_stack(a, b);
 	ft_print_stacks(a, NULL);

@@ -1,38 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 12:08:41 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 16:45:25 by fschmid          ###   ########.fr       */
+/*   Created: 2023/01/06 15:30:13 by fschmid           #+#    #+#             */
+/*   Updated: 2023/01/06 15:43:30 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_a(t_stack **a, t_stack **b)
+int	first_top(t_stack **a, int max)
 {
 	t_stack	*tmp;
 
-	if (!*b)
-		return ;
-	tmp = (*b)->next;
-	ft_stackadd_front(a, *b);
-	*b = tmp;
-	ft_putendl_fd("pa", 1);
+	tmp = *a;
+	while (!(tmp->index <= max))
+	{
+		tmp = tmp->next;
+	}
+	return (tmp->index);
 }
 
-void	ft_push_b(t_stack **b, t_stack **a)
+int	stack_pos(t_stack **stack, int max)
 {
+	int		pos;
+	int		mid;
+	int		size;
 	t_stack	*tmp;
 
-	if (!*a)
-		return ;
-	tmp = (*a)->next;
-	ft_stackadd_front(b, *a);
-	*a = tmp;
-	ft_putendl_fd("pb", 1);
-}
+	pos = 0;
+	size = ft_stack_size(stack);
 
+	mid = size / 2;
+	tmp = *stack;
+	while (tmp->index != max)
+	{
+		tmp = tmp->next;
+		pos++;
+	}
+	if (pos > mid)
+		return (2);
+	if (pos <= mid)
+		return (1);
+	return (0);
+}

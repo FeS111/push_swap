@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 12:34:46 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/06 15:52:52 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,23 @@ int		is_sorted(t_stack **stack);
 
 void	ft_print_stacks(t_stack **a, t_stack **b);
 
+void	sort_size_two(t_stack **a);
+
+void	sort_size_three(t_stack **a, int max);
+
+void	sort_size_five(t_stack **a, t_stack **b);
+
+int		stack_pos(t_stack **stack, int max);
+
+int		first_top(t_stack **a, int max);
+
 void	sort_stack(t_stack **a, t_stack **b);
 
 t_stack	*ft_stacknew(int content);
 
 void	ft_stackadd_back(t_stack **lst, t_stack *new);
 
-t_stack	*ft_stacklast(t_stack *lst);
+t_stack	*ft_stacklast(t_stack **lst);
 
 t_stack	**ft_parse_arguments(int argc, char **args);
 

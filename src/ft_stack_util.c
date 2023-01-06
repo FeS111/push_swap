@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 12:35:12 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/06 16:07:24 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ t_stack	*ft_stacknew(int content)
 	return (lst);
 }
 
-t_stack	*ft_stacklast(t_stack *lst)
+t_stack	*ft_stacklast(t_stack **lst)
 {
 	t_stack	*current;
 
-	current = lst;
+	if (!lst)
+		return (NULL);
+	current = *lst;
 	while (current)
 	{
 		if (!current->next)
@@ -75,11 +77,13 @@ void	ft_stackadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*last;
 
+	if (!lst)
+		return ;
 	if (*lst)
 	{
-		last = ft_stacklast(*lst);
+		last = ft_stacklast(lst);
 		if (last)
-		last->next = new;
+			last->next = new;
 	}
 	else
 		*lst = new;
