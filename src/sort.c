@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fschmid <fschmid@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 11:29:27 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 16:48:22 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/07 15:11:47 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	sort_size_above_five(t_stack **a, t_stack **b)
+{	
+
+}
 
 void	sort_stack(t_stack **a, t_stack **b)
 {
@@ -20,7 +25,6 @@ void	sort_stack(t_stack **a, t_stack **b)
 		sort_size_three(a, ft_stack_size(a) - 1);
 	else if (ft_stack_size(a) <= 5)
 		sort_size_five(a, b);
-	else if (ft_stack_size > 5)
-		// TODO
+	else if (ft_stack_size(a) > 5)
+		sort_size_above_five(a, b);
 }
-
