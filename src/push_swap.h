@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/10 12:02:37 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:35:41 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	chunk_sort(t_stack **a, t_stack **b, int chunk);
 int		is_rev_sorted(t_stack **stack);
 
 int		is_sorted(t_stack **stack);
-
-void	ft_print_stacks(t_stack **a, t_stack **b);
 
 void	sort_size_two(t_stack **a);
 

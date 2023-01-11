@@ -6,43 +6,11 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:22:15 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/10 13:46:52 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:35:30 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_print_stacks(t_stack **a, t_stack **b)
-{
-	t_stack	*atmp;
-	t_stack	*btmp;
-
-	if (a)
-		atmp = *a;
-	else
-		atmp = NULL;
-	if (b)
-		btmp = *b;
-	else
-		btmp = NULL;
-	while (atmp != NULL || btmp != NULL)
-	{
-		if (atmp != NULL)
-			ft_printf(" %d", atmp->content);
-		else
-			ft_printf(" .");
-		ft_printf("    ");
-		if (btmp != NULL)
-			ft_printf("%d \n", btmp->content);
-		else
-			ft_printf(". \n");
-		if (atmp)
-			atmp = atmp->next;
-		if (btmp)
-			btmp = btmp->next;
-	}
-	ft_printf("<a>  <b>\n");
-}
 
 t_stack	*ft_stacknew(int content)
 {
