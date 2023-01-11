@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 15:30:13 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 15:43:30 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/10 14:19:08 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int	first_top(t_stack **a, int max)
 
 	tmp = *a;
 	while (!(tmp->index <= max))
-	{
 		tmp = tmp->next;
-	}
 	return (tmp->index);
 }
 
@@ -33,7 +31,6 @@ int	stack_pos(t_stack **stack, int max)
 
 	pos = 0;
 	size = ft_stack_size(stack);
-
 	mid = size / 2;
 	tmp = *stack;
 	while (tmp->index != max)

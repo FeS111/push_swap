@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 14:36:35 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 16:45:12 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/11 12:36:26 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,7 @@ void	sort_size_five(t_stack **a, t_stack **b)
 			while ((*a)->index != min)
 				ft_reverse_rotate_a(a);
 		if (!is_sorted(a))
-		{
 			ft_push_b(b, a);
-		}
 		min++;
 	}
 	if (max == 4)
@@ -71,7 +69,5 @@ void	sort_size_five(t_stack **a, t_stack **b)
 	if (max == 3)
 		sort_size_three(a, 3);
 	while (ft_stack_size(b))
-	{
 		ft_push_a(a, b);
-	}	
 }

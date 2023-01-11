@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:08:41 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 16:45:25 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/11 11:47:01 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ void	ft_push_b(t_stack **b, t_stack **a)
 	*a = tmp;
 	ft_putendl_fd("pb", 1);
 }
-

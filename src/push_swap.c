@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:01:35 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 16:47:31 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/11 14:13:03 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	*b = NULL;
 	ft_set_index(a);
 	sort_stack(a, b);
-	ft_print_stacks(a, NULL);
+	// ft_print_stacks(a, b);
 	ft_free_stack(a);
 	ft_free_stack(b);
 	return (0);

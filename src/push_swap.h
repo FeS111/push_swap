@@ -6,7 +6,7 @@
 /*   By: fschmid <fschmid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 09:17:52 by fschmid           #+#    #+#             */
-/*   Updated: 2023/01/06 15:52:52 by fschmid          ###   ########.fr       */
+/*   Updated: 2023/01/10 12:02:37 by fschmid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }	t_stack;
+
+void	sort_size_above_five(t_stack **a, t_stack **b);
+
+void	chunk_sort(t_stack **a, t_stack **b, int chunk);
 
 int		is_rev_sorted(t_stack **stack);
 
